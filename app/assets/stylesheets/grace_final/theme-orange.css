@@ -888,7 +888,7 @@ a.thumb_plus:hover{
 .widget-newsletter .form-control{
     -webkit-box-shadow:0 0 9px #bdbdbd inset;
     -moz-box-shadow:0 0 9px #bdbdbd inset;
-    box-shadow:0 0 9px #bdbdbd inset;
+    box-shadow:0 0 9px #bdbdbd inset
 }
 .widget-foot .underline{
     border-bottom:1px dotted #f96238;
