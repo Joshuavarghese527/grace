@@ -1,6 +1,7 @@
 class GraceFinalsController < ApplicationController
 
   def home
+     @event = Event.order(:date)
   end
 
   def im_new

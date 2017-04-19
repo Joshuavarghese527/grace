@@ -13,12 +13,38 @@
             
             <!-- Navigation -->
             <div class="navbar-collapse collapse">
+            <% if(!user_signed_in?) %>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Home -->
                     <li>
                    <li><%= link_to "Home", root_path %></li>
                     </li>
                     <li>
+                   <li><%= link_to "I'm New", im_new_path %></li>
+                    </li>
+                    <li>
+                   <li><%= link_to "Get to know us", know_us_path %></li>
+                    </li>
+                    <li>
+                   <li><%= link_to "What we do", what_we_do_path %></li>
+                    </li>
+                     <li>
+                     <li>
+                    <li><%= link_to "Events", events_path %></li>
+                    </li>
+                    <li>
+                   <li><%= link_to "Resources", resources_path %></li>
+                    </li>
+                     <li>
+                   <li><%= link_to "Contribute", contribute_path %></li>
+                    </li>
+                     <li>
+                   <li><%= link_to "Contact", contact_path %></li>
+                    </li>
+                </ul>
+                <% else %>
+                 <ul class="nav navbar-nav navbar-right">
+                    <!-- Home -->
                    <li><%= link_to "I'm New", im_new_path %></li>
                     </li>
                     <li>
@@ -36,8 +62,18 @@
                      <li>
                    <li><%= link_to "Contact", contact_path %></li>
                     </li>
-                  
+                    <li>
+                    <li><%= link_to "Events", events_path %></li>
+                    </li>
+                    <li>
+                    <li>
+                    <li><%= link_to "Create Event", new_event_path %></li>
+                    </li>
+                    <li>
+                     <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                      </li>
                 </ul>
+                 <% end %>
             </div>
             <!-- /Navigation -->
             

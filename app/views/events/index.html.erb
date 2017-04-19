@@ -1,0 +1,50 @@
+ <%= render 'shared/navbar' %>
+    <!-- ========== Page Header ========== -->
+                <div class="jumbotron image-banner full-screen" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/grace_final/food.jpg') no-repeat 0 0 #ffffff;background-size:cover;background-position:center center">
+            <div class="container">
+                <div class="inner">
+                    <h1 class="text-center">Upcoming Events Grace East Queens</h1>
+                    <h3 class="text-center"></h3>
+                </div><div class="helper"></div>
+            </div>
+        </div>
+        <!-- ========== /Page Header ========== -->
+               <!-- ========== Page Content ========== -->
+    <div class="section bg-white">
+      <div class="container">
+          
+  <div id="pages">
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Upcoming Events
+      </div>
+      <div class="panel-body">
+        
+        <% @event.each do |event| %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= image_tag event.photos[0].image.url(:thumb) if event.photos.length > 0 %>
+            </div>    
+            <div class="col-md-4">
+              <h4><%= link_to event.title %></h4>
+            </div>  
+              <div class="col-md-4">
+              <h4><%= event.date.strftime(" %A, %b  %d  %Y") %> <br><%= event.time.strftime("%l:%M %p")%></h4>  
+              </div>
+          </div>
+          <hr>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+ </div>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>
+
+ <%= render 'shared/javascript' %>

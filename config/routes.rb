@@ -23,5 +23,11 @@ Rails.application.routes.draw do
    #grace_stories
    get  'grace_stories'    => 'grace_finals#grace_stories'
 
+resources :users, only: [:show]
+resources :events 
+resources :photos 
+
+
+
 
 end
