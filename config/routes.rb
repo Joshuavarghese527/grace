@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
    root  'grace_finals#home'
   get  'im_new'    => 'grace_finals#im_new'
   get  'know_us'    => 'grace_finals#know_us'
@@ -18,5 +19,9 @@ Rails.application.routes.draw do
 
   #sunday
    get  'sunday'    => 'grace_finals#sunday'
+
+   #grace_stories
+   get  'grace_stories'    => 'grace_finals#grace_stories'
+
 
 end

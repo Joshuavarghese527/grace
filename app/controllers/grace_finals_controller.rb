@@ -36,5 +36,8 @@ class GraceFinalsController < ApplicationController
   def sunday
   end
 
+  def grace_stories
+  end
+
 end
  
