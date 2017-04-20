@@ -885,11 +885,7 @@ a.thumb_plus:hover{
 .widget-recent-post .category:after{
     border-bottom:1px solid #d8d7d7;
 }
-.widget-newsletter .form-control{
-    -webkit-box-shadow:0 0 9px #bdbdbd inset;
-    -moz-box-shadow:0 0 9px #bdbdbd inset;
-    box-shadow:0 0 9px #bdbdbd inset
-}
+
 .widget-foot .underline{
     border-bottom:1px dotted #f96238;
 }

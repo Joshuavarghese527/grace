@@ -3074,13 +3074,7 @@ h3.block-title:after{
 .widget-newsletter form{
     position:relative
 }
-.widget-newsletter .form-control{
-    border:0;
-    padding-right:50px
-    -webkit-box-shadow:0 0 9px #bdbdbd inset;
-    -moz-box-shadow:0 0 9px #bdbdbd inset;
-    box-shadow:0 0 9px #bdbdbd inset
-}
+
 .widget-newsletter .btn{
     width:45px;
     position:absolute;
