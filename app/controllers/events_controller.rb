@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
-  layout 'grace_final'
   before_action :set_event, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @event = Event.order(:date)
+    @events = Event.paginate(:page => params[:date], :per_page => 3)
   end
 
   def show
@@ -56,12 +56,11 @@ class EventsController < ApplicationController
     end
   end
 
-    def destroy
+   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+ 
+    redirect_to events_path
   end
 
   private

@@ -1,0 +1,25 @@
+<div id="banner" class="podcasts_banner">
+  <h1>Discover your new favorite User</h1>
+</div>
+
+<div id="podcasts" class="cf">
+  <div class="wrapper">
+    <ul class="cf">
+      <% @users.each do |user| %>
+        <%= link_to user do %>
+          <li>
+            <%= image_tag user.thumbnail.url(:medium) %>
+            <div class="podcast_overview">
+              <h2><%= user.title %></h2>
+              <p class="episode_count">1 Episode</p>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <%= will_paginate @users, previous_label: "Previous", next_label: "Next" %>
+  </div>
+</div>
+
+    

@@ -1,0 +1,47 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1><%= @user.title %></h1>
+      <p class="description"><%= @user.description %></p>
+      <% unless @user.itunes.blank? %>
+        <a href="<%= @podcast.itunes %>" class="subscribe_link">iTunes</a>
+      <% end %>
+      <% unless @user.stitcher.blank? %>
+        <a href="<%= @podcast.stitcher %>" class="subscribe_link">Stitcher</a>
+      <% end %>
+      <% unless @user.podbay.blank? %>
+        <a href="<%= @podcast.podbay %>" class="subscribe_link">PodBay</a>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="breadcrumb">
+    <%= link_to users_path do %>
+      All Users
+      <span>/</span>
+      <%= @user.title %>
+    <% end %>
+  </div>
+
+  <div id="episodes">
+    <div class="wrapper_skinny">
+      <ul class="cf">
+        <% @episodes.each do |episode| %>
+          <li class="cf">
+            <div class="episode_thumbnail">
+              <a href="#">
+                <%= image_tag episode.episode_thumbnail.url(:medium) %>
+              </a>
+            </div>
+            <div class="episode_overview">
+              <h2><%= link_to episode.title, user_episode_path(@user, episode) %></h2>
+              <p class="description"><%= truncate(episode.description, length: 160) %></p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= will_paginate @episodes, previous_label: "Previous", next_label: "Next" %>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,18 @@ gem 'devise'
 gem "paperclip", "~> 5.0.0"
 
 gem "jquery-ui-rails"
+
+gem "figaro"
+
+gem "geocoder"
+
+gem 'will_paginate', '~> 3.1.0'
+
+
+gem 'fog'
+
+gem 'carrierwave', '~> 1.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

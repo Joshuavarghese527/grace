@@ -7,7 +7,7 @@
                
                 
                 <!-- Logo -->
-                <a class="navbar-brand" href="/"><img src="assets/grace_final/logo.png" alt="Magnet" /></a>
+                <a class="navbar-brand" href="/"><img src="assets/grace_final/logo.png" alt=" East Queens" /></a>
                 <!-- /Logo -->
             </div>
             
@@ -32,6 +32,9 @@
                      <li>
                     <li><%= link_to "Events", events_path %></li>
                     </li>
+                     <li>
+                    <li><%= link_to "Sermons", sermons_path %></li>
+                    </li>
                     <li>
                    <li><%= link_to "Resources", resources_path %></li>
                     </li>
@@ -45,9 +48,6 @@
                 <% else %>
                  <ul class="nav navbar-nav navbar-right">
                     <!-- Home -->
-                   <li><%= link_to "I'm New", im_new_path %></li>
-                    </li>
-                    <li>
                    <li><%= link_to "Get to know us", know_us_path %></li>
                     </li>
                     <li>
@@ -56,18 +56,19 @@
                      <li>
                    <li><%= link_to "Resources", resources_path %></li>
                     </li>
-                     <li>
-                   <li><%= link_to "Contribute", contribute_path %></li>
-                    </li>
-                     <li>
-                   <li><%= link_to "Contact", contact_path %></li>
-                    </li>
                     <li>
                     <li><%= link_to "Events", events_path %></li>
                     </li>
                     <li>
                     <li>
                     <li><%= link_to "Create Event", new_event_path %></li>
+                    </li>
+                     <li>
+                    <li><%= link_to "Sermons", sermons_path %></li>
+                    </li>
+                    <li>
+                    <li>
+                    <li><%= link_to "Create Sermons", new_sermon_path %></li>
                     </li>
                     <li>
                      <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>

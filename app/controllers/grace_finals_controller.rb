@@ -2,6 +2,10 @@ class GraceFinalsController < ApplicationController
 
   def home
      @event = Event.order(:date)
+     @sermon = Sermon.order(:date)
+  end
+
+  def volunteer
   end
 
   def im_new

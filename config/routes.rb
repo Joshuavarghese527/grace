@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'sermons/index'
+
+  get 'sermons/show'
+
+  get 'sermons/new'
+
+  get 'sermons/create'
+
+  get 'sermons/edit'
+
+  get 'sermons/update'
+
   devise_for :users
    root  'grace_finals#home'
   get  'im_new'    => 'grace_finals#im_new'
@@ -23,8 +35,12 @@ Rails.application.routes.draw do
    #grace_stories
    get  'grace_stories'    => 'grace_finals#grace_stories'
 
+   #grace_stories
+   get  'volunteer'    => 'grace_finals#volunteer'
+
 resources :users, only: [:show]
 resources :events 
+resources :sermons
 resources :photos 
 
 

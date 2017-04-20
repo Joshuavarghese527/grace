@@ -1,10 +1,19 @@
  <%= render 'shared/navbar' %>
     <!-- ========== Page Header ========== -->
-                <div class="jumbotron image-banner full-screen" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/grace_final/food.jpg') no-repeat 0 0 #ffffff;background-size:cover;background-position:center center">
+                <div class="jumbotron image-banner full-screen" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/grace_final/park.png') no-repeat 0 0 #ffffff;background-size:cover;background-position:center center">
             <div class="container">
-                <div class="inner">
-                    <h1 class="text-center">Upcoming Events Grace East Queens</h1>
+                <div class="center-block">
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                    <h1 class="text-center">Upcoming Events</h1>
                     <h3 class="text-center"></h3>
+                    <div class="text-center">
+                                
+                            </div>
                 </div><div class="helper"></div>
             </div>
         </div>
@@ -28,14 +37,25 @@
               <%= image_tag event.photos[0].image.url(:thumb) if event.photos.length > 0 %>
             </div>    
             <div class="col-md-4">
-              <h4><%= link_to event.title %></h4>
+              <h4><%= link_to event.title, event_path(event) %></h4>
             </div>  
               <div class="col-md-4">
               <h4><%= event.date.strftime(" %A, %b  %d  %Y") %> <br><%= event.time.strftime("%l:%M %p")%></h4>  
+              <% if(!user_signed_in?) %>
+
+            <% else %>
+          <%= link_to "Update", edit_event_path(event), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', event_path(event),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
+          <% end %>
               </div>
           </div>
           <hr>
         <% end %>
+        <div class= "text-center">
+         <%= will_paginate @events %>
+         </div>
 
       </div>
     </div>

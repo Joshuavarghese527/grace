@@ -12,11 +12,17 @@
         <!-- ========== Page Header ========== -->
                 <div class="jumbotron image-banner full-screen" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/grace_final/grace_group.jpg') no-repeat 0 0 #ffffff;background-size:cover;background-position:center center">
             <div class="container">
-                <div class="inner">
+                <div class="center-block">
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
                     <h1 class="text-center">Love the City. Love East Queens</h1>
-                    <h3 class="text-center">Restoring the Negihborhoods of East Queens by the message of the Gospel. <br>Click Below to learn more</h3>
+                    <h3 class="text-center"></h3>
                     <div class="text-center">
-                                <a class="gallery-link mfp-iframe btn btn-inverse" href="https://vimeo.com/207233999" ><i class="fa fa-play-circle">
+                                <a class="gallery-link mfp-iframe btn btn-primary-magnet" href="https://vimeo.com/207233999" ><i class="fa fa-play-circle">
                                 Play Video</a></i>
                             </div>
                 </div><div class="helper"></div>
@@ -31,7 +37,7 @@
         <!-- ========== Latest News ========== -->
         <div class="section bg-white">
             <div class="container">
-                <h2 class="block-title" data-sr='roll -45deg'>What we can do</h2>
+                <h2 class="block-title" data-sr='roll -45deg'>Explore</h2>
               <div class="col-sm-4">
                         <div class="post-grid" data-sr='scale up 30%'>
                             <div class="image">
@@ -44,11 +50,11 @@
                                     <div class="helper"></div>
                                 </div>
                             </div>
-                            <h4 class="title"><a href="blog-post.html">I'm New</a></h4>
+                            <h4 class="title"><a href="/im_new">I'm New</a></h4>
                             <div class="body"> Grace exists to create safe places in New York City for people to explore and be challenged in faith toward Jesus.Here at Grace we believe that every person has a journey and those journeys points to a story.  Help form the DNA of this young church.</div>
                             <div class="meta-btn">
-                                <a href="blog-post.html" class="btn btn-primary-magnet">READ MORE</a>
-                                <a href="blog-post.html" class="btn btn-inverse"><i class="fa fa-comment"></i> DIRECTIONS</a>
+                                <a href="/im_new" class="btn btn-primary-magnet hvr-icon-forward">READ MORE</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -67,8 +73,8 @@
                             <h4 class="title"><a href="blog-post.html">Sunday Morning</a></h4>
                             <div class="body">Our Sunday morning gathering hold a unique place for proclamation of the gospel and impartation from the larger community in ways that nothing else can.The God who is everywhere at all time calls us together Sunday morning to express who HE is in a powerful, focused way.</div>
                             <div class="meta-btn">
-                                <a href="blog-post.html" class="btn btn-primary-magnet">READ MORE</a>
-                                <a href="blog-post.html" class="btn btn-inverse"><i class="fa fa-comment"></i> DIRECTIONS</a>
+                                <a href="/sunday" class="btn btn-primary-magnet hvr-icon-forward">READ MORE</a>
+                                <a href="https://www.google.com/maps?q=anibic&biw=1440&bih=679&bav=on.2,or.r_cp.&um=1&ie=UTF-8&sa=X&ved=0ahUKEwiTiY6ZmbHTAhUK6mMKHTUIBPoQ_AUIBigB" target= "_blank" class="btn btn-inverse hvr-icon-forward"></i> DIRECTIONS</a>
                             </div>
                         </div>
                     </div>
@@ -79,16 +85,15 @@
                                 <div class="caption">
                                     <div class="caption-inner">
                                         <!-- <a href="images/news-2.jpg" class="icon-link white"><i class="fa fa-search"></i></a> -->
-                                        <a href="/know_us" class="icon-link white"><i class="fa fa-link"></i></a>
+                                        <a href="/know_us" class="icon-link white "><i class="fa fa-link"></i></a>
                                     </div>
                                     <div class="helper"></div>
                                 </div>
                             </div>
-                            <h4 class="title"><a href="blog-post.html">Community Group</a></h4>
+                            <h4 class="title"><a href="blog-post.html">Community Groups</a></h4>
                             <div class="body">Community is central to who we are at Grace. We believe that community isn't just a part of life, it's an essential component to living out our lives in light of the Gospel.We want to challenge the status quo of our city who thinks, decisions and responsibilities must be done on our own.</div>
                             <div class="meta-btn">
-                                <a href="blog-post.html" class="btn btn-primary-magnet">EXPLORE</a>
-                                <a href="blog-post.html" class="btn btn-inverse"><i class="fa fa-comment"></i>EVENTS</a>
+                                <a href="/know_us" class="btn btn-primary-magnet hvr-icon-forward">EXPLORE</a>
                             </div>
                         </div>
                     </div>
@@ -127,7 +132,7 @@
               <%= image_tag event.photos[0].image.url(:thumb) if event.photos.length > 0 %>
             </div>    
             <div class="col-md-4">
-              <h4><%= link_to event.title, events_path %></h4>
+                <h4><%= link_to event.title, event_path(event) %></h4>
             </div>  
               <div class="col-md-4">
               <h4><%= event.date.strftime(" %A, %b  %d  %Y") %> <br><%= event.time.strftime("%l:%M %p")%></h4>  

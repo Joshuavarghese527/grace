@@ -1,0 +1,70 @@
+ <%= render 'shared/navbar' %>
+    <!-- ========== Page Header ========== -->
+                <div class="jumbotron image-banner full-screen" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/grace_final/park.png') no-repeat 0 0 #ffffff;background-size:cover;background-position:center center">
+            <div class="container">
+                <div class="center-block">
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                    <h1 class="text-center">Sermons</h1>
+                    <h3 class="text-center"></h3>
+                    <div class="text-center">
+                                
+                            </div>
+                </div><div class="helper"></div>
+            </div>
+        </div>
+        <!-- ========== /Page Header ========== -->
+               <!-- ========== Page Content ========== -->
+    <div class="section bg-white">
+      <div class="container">
+          
+  <div id="pages">
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Sermons
+      </div>
+      <div class="panel-body">
+        
+        <% @sermon.each do |sermon| %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= image_tag sermon.photos[0].image.url(:thumb) if sermon.photos.length > 0 %>
+            </div>    
+            <div class="col-md-4">
+              <h4><%= link_to sermon.title, sermon_path(sermon) %></h4>
+            </div>  
+              <div class="col-md-4">
+              <h4><%= sermon.date.strftime(" %A, %b  %d  %Y") %> <br><%= sermon.time.strftime("%l:%M %p")%></h4>  
+              <% if(!user_signed_in?) %>
+
+            <% else %>
+          <%= link_to "Update", edit_sermon_path(sermon), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', sermon_path(sermon),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
+          <% end %>
+              </div>
+          </div>
+          <hr>
+        <% end %>
+        <div class= "text-center">
+       
+         </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+ </div>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>
+
+ <%= render 'shared/javascript' %>

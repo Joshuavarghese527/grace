@@ -1,0 +1,11 @@
+class AddAttachmentThumbnailToUser < ActiveRecord::Migration[5.0]
+  def self.up
+    change_table :users do |t|
+      t.attachment :thumbnail
+    end
+  end
+
+  def self.down
+    remove_attachment :users, :thumbnail
+  end
+end
