@@ -31,6 +31,7 @@ gem "geocoder"
 
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'aws-sdk', '~> 2.3'
 
 gem 'fog'
 
