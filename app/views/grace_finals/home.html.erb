@@ -119,9 +119,9 @@
   <div id="pages">
     <h2 class="block-title" data-sr='roll -45deg'>Upcoming Events</h2>
   <div class="row">
-   <div class="col-md-12">
+   <div class="col-md-6">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading text-center">
         Upcoming Events
       </div>
       <div class="panel-body">
@@ -144,8 +144,49 @@
       </div>
     </div>
   </div>
+<!---- End of Upcoming Events-->
+
+<!--- Start of Sermons ---->
+
+<div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        Sermons
+      </div>
+      <div class="panel-body">
+        
+        <% @sermon.each do |sermon| %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= image_tag sermon.photos[0].image.url(:thumb) if sermon.photos.length > 0 %>
+            </div>    
+            <div class="col-md-4">
+              <h4><%= link_to sermon.title, sermon_path(sermon) %></h4>
+            </div>  
+              <div class="col-md-4">
+              <h4><%= sermon.date.strftime(" %A, %b  %d  %Y") %> <br><%= sermon.time.strftime("%l:%M %p")%></h4>  
+              <% if(!user_signed_in?) %>
+
+            <% else %>
+          <%= link_to "Update", edit_sermon_path(sermon), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', sermon_path(sermon),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
+          <% end %>
+              </div>
+          <hr>
+        <% end %>
+        <div class= "text-center">
+       
+         </div>
+
+      </div>
+    </div>
+  </div>
 </div>
  </div>
+  </div>
+<!--- End of Sermons ---->
   </div>
 </div>
         

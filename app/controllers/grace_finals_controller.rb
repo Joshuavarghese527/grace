@@ -27,6 +27,7 @@ class GraceFinalsController < ApplicationController
   end
 
   def sermon_series
+    @sermon = Sermon.order(:date)
   end
 
   def app

@@ -47,139 +47,46 @@
   <div id="pages">
     
         <!-- ========== Page Header ========== -->
- <!-- Project Filters -->
-        <ul class="nav magnet-iso-filter">
-          <li><a href="#" data-filter="*" class="active">All Sermons</a></li>
-          <li><a href="#" data-filter=".filter-1">Acts</a></li>
-          <li><a href="#" data-filter=".filter-2">Grace</a></li>
-          <li><a href="#" data-filter=".filter-3">Values</a></li>
-          <li><a href="#" data-filter=".filter-4">Vision</a></li>
-        </ul>
-                <!-- /Project Filters -->
-                
-        <div class="magnet-iso-content type-full">
-          <div class="item filter-2">
-            <div class="inner">
-              <div class="image"><img src="images/project-lg-1.jpg" alt="" class="img-responsive" /></div>
-              <div class="details">
-                <div class="item-detail">
-                  <h3 class="widget-title">GRAPHIC DESIGN</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                  <ul>
-                    <li>Photoshop</li>
-                    <li>Illustrator</li>
-                    <li>Photography</li>
-                    <li>PSD Included</li>
-                  </ul>
-                  <div class="website"><a href="http://www.sampledomain.com" target="_blank">www.sampledomain.com</a></div>
-                </div>
-                <div class="item-desc">
-                  <h5 class="widget-title">PROJECT DESCRIPTION</h5>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Sermons
+      </div>
+      <div class="panel-body">
+        
+        <% @sermon.each do |sermon| %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= image_tag sermon.photos[0].image.url(:thumb) if sermon.photos.length > 0 %>
+            </div>    
+            <div class="col-md-4">
+              <h4><%= link_to sermon.title, sermon_path(sermon) %></h4>
+            </div>  
+              <div class="col-md-4">
+              <h4><%= sermon.date.strftime(" %A, %b  %d  %Y") %> <br><%= sermon.time.strftime("%l:%M %p")%></h4>  
+              <% if(!user_signed_in?) %>
+
+            <% else %>
+          <%= link_to "Update", edit_sermon_path(sermon), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', sermon_path(sermon),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
+          <% end %>
               </div>
-              <div class="clearfix"></div>
-            </div>
           </div>
-          <div class="item filter-3">
-            <div class="inner">
-              <div class="image"><img src="images/project-lg-2.jpg" alt="" class="img-responsive" /></div>
-              <div class="details">
-                <div class="item-detail">
-                  <h3 class="widget-title">Ecommerce</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                  <ul>
-                    <li>Photoshop</li>
-                    <li>Illustrator</li>
-                    <li>Photography</li>
-                    <li>PSD Included</li>
-                  </ul>
-                  <div class="website"><a href="http://www.sampledomain.com" target="_blank">www.sampledomain.com</a></div>
-                </div>
-                <div class="item-desc">
-                  <h5 class="widget-title">PROJECT DESCRIPTION</h5>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="item filter-4">
-            <div class="inner">
-              <div class="image"><img src="images/project-lg-3.jpg" alt="" class="img-responsive" /></div>
-              <div class="details">
-                <div class="item-detail">
-                  <h3 class="widget-title">SEO &amp; MARKETING</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                  <ul>
-                    <li>Photoshop</li>
-                    <li>Illustrator</li>
-                    <li>Photography</li>
-                    <li>PSD Included</li>
-                  </ul>
-                  <div class="website"><a href="http://www.sampledomain.com" target="_blank">www.sampledomain.com</a></div>
-                </div>
-                <div class="item-desc">
-                  <h5 class="widget-title">PROJECT DESCRIPTION</h5>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="item filter-1">
-            <div class="inner">
-              <div class="image"><img src="images/project-lg-4.jpg" alt="" class="img-responsive" /></div>
-              <div class="details">
-                <div class="item-detail">
-                  <h3 class="widget-title">Web DESIGN</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                  <ul>
-                    <li>Photoshop</li>
-                    <li>Illustrator</li>
-                    <li>Photography</li>
-                    <li>PSD Included</li>
-                  </ul>
-                  <div class="website"><a href="http://www.sampledomain.com" target="_blank">www.sampledomain.com</a></div>
-                </div>
-                <div class="item-desc">
-                  <h5 class="widget-title">PROJECT DESCRIPTION</h5>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="item filter-1">
-            <div class="inner">
-              <div class="image"><img src="images/project-lg-5.jpg" alt="" class="img-responsive" /></div>
-              <div class="details">
-                <div class="item-detail">
-                  <h3 class="widget-title">Web Design</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                  <ul>
-                    <li>Photoshop</li>
-                    <li>Illustrator</li>
-                    <li>Photography</li>
-                    <li>PSD Included</li>
-                  </ul>
-                  <div class="website"><a href="http://www.sampledomain.com" target="_blank">www.sampledomain.com</a></div>
-                </div>
-                <div class="item-desc">
-                  <h5 class="widget-title">PROJECT DESCRIPTION</h5>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
+          <hr>
+        <% end %>
+        <div class= "text-center">
+       
+         </div>
+
       </div>
     </div>
-        <!-- ========== /Page Content ========== -->
-        
-    </div>
-    <!-- Page sections end. -->
+  </div>
+</div>
+ </div>
+  </div>
+</div>
 
     
     <!-- Back to Top -->
