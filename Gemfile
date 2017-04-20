@@ -33,9 +33,6 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'aws-sdk', '~> 2.3'
 
-gem 'fog'
-
-gem 'carrierwave', '~> 1.0'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
