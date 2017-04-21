@@ -75,7 +75,7 @@ config.paperclip_defaults = {
         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     },
-    :url =>':s3_domain_url',
+    :url =>'https://console.aws.amazon.com/s3/buckets/grace-east-queens/?region=us-west-2&tab=overview',
     :path => '/:class/:attachment/:id_partition/:style/:filename',
 }
   # Use default logging formatter so that PID and timestamp are not suppressed.
