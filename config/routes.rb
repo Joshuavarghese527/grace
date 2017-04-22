@@ -38,11 +38,23 @@ Rails.application.routes.draw do
    #grace_stories
    get  'volunteer'    => 'grace_finals#volunteer'
 
+    #community_group
+   get  'community_groups'    => 'grace_finals#community_groups'
+
+   #create
+   get  'create'    => 'grace_finals#create'
+
+   #dna_group
+   get  'dna'    => 'grace_finals#dna'
+
+   #serve
+   get  'serve'    => 'grace_finals#serve'
+
 resources :users, only: [:show]
 resources :events 
 resources :sermons
 resources :photos 
-
+resources :groups
 
 
 

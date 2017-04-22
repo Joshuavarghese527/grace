@@ -8,7 +8,7 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
-    font-size:14px;
+    font-size: 18px;
     padding-top:70px;
     line-height:2;
     color:#3a3939;
@@ -26,7 +26,7 @@ h3,.h3{
     font-size:22px
 }
 h4,.h4{
-    font-size:18px
+    font-size: 20px
 }
 h5,.h5{
     font-size:16px

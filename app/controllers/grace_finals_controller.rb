@@ -8,6 +8,12 @@ class GraceFinalsController < ApplicationController
   def volunteer
   end
 
+  def create
+     @event = Event.order(:date)
+     @sermon = Sermon.order(:date)
+     @group = Group.order(:date)
+  end
+
   def im_new
   end
 
@@ -40,6 +46,17 @@ class GraceFinalsController < ApplicationController
   end
 
   def sunday
+  end
+
+  def community_groups
+    @group = Group.order(:date)
+    @groups = Group.paginate(:page => params[:date], :per_page => 3)
+  end
+
+  def dna
+  end
+
+  def serve
   end
 
   def grace_stories

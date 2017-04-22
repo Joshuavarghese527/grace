@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :events
   has_many :reservations
   has_many :sermons
+  has_many :groups
 
 end

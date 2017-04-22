@@ -1,0 +1,99 @@
+<%= render 'shared/navbar' %>
+  
+    <!-- Page sections start. -->
+        
+      <!-- Page sections start. -->
+        
+         <!-- ========== Page Header ========== -->
+                <div class="jumbotron image-banner full-screen" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/grace_final/grace_joy.jpg') no-repeat 0 0 #ffffff;background-size:cover;background-position:center center">
+            <div class="container">
+                <div class="center-block">
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                    <h1 class="text-center">Community Group</h1>
+                    <h3 class="text-center"></h3>
+                    <div class="text-center">
+                              
+                            </div>
+                </div><div class="helper"></div>
+            </div>
+        </div>
+        <!-- ========== /Page Header ========== -->
+
+
+          <!-- ========== Page Content ========== -->
+        <div class="bg-white">
+            <div class="container">
+                <div class="featurette">
+                    <h2 class="featurette-heading text-center"> Learn more about Community Groups</h2>
+                    <i><p class="featurette-lead text-center"></p></i>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-justify">DNA group refers to a group that usually consists of 3-4 people, men with men, women with women – who meet together weekly. They seek to be vulnerable and to bring gospel truths to bear on each other’s lives to move from unbelief to belief, becoming more like Jesus.</p>
+
+                            <p class="text-justify">DNA groups learn together, grow together, and live out God-given identities in community. If you would like to join a group please email  benthariath@gmail.com  or blazinb112@gmail.com </p>
+                                  
+                        </div>
+                         <div class="row">
+                        <div class="col-md-6">
+                            <img data-sr='enter top move 100px' class="featurette-image img-responsive center-block" src="assets/grace_final/grace_group.jpg" alt="Generic placeholder image">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Community Group Events</h3>
+      </div>
+      <div class="panel-body">
+        
+        <% @group.each do |group| %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= image_tag group.photos[0].image.url(:thumb) if group.photos.length > 0 %>
+            </div>    
+            <div class="col-md-4">
+              <h4><%= link_to group.title, group_path(group) %></h4>
+            </div>  
+              <div class="col-md-4">
+              <h4><%= group.date.strftime(" %A, %b  %d  %Y") %> <br><%= group.time.strftime("%l:%M %p")%></h4>  
+              <% if(!user_signed_in?) %>
+
+            <% else %>
+          <%= link_to "Update", edit_group_path(group), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', group_path(group),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
+          <% end %>
+              </div>
+          </div>
+          <hr>
+        <% end %>
+        <div class= "text-center">
+         </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+ 
+
+     <!-- Back to Top -->
+    <div id="back_to_top">
+        <div class="container">
+            <a href="#"><i class="ic ic-angle-up-white"></i></a>
+        </div>
+    </div>
+    <!-- /Back to Top -->    
+    <%= render 'shared/footer' %>
+<%= render 'shared/javascript' %>

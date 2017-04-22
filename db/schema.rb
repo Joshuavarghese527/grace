@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420174715) do
+ActiveRecord::Schema.define(version: 20170422001908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "communities", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "address"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.date     "date"
+    t.time     "time"
+    t.index ["user_id"], name: "index_communities_on_user_id", using: :btree
+  end
 
   create_table "episodes", force: :cascade do |t|
     t.string   "title"
@@ -48,6 +60,20 @@ ActiveRecord::Schema.define(version: 20170420174715) do
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "address"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.date     "date"
+    t.time     "time"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
+  end
+
   create_table "photos", force: :cascade do |t|
     t.integer  "event_id"
     t.datetime "created_at",           null: false
@@ -64,7 +90,11 @@ ActiveRecord::Schema.define(version: 20170420174715) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "sermon_id"
+    t.integer  "communities_id"
+    t.integer  "groups_id"
+    t.index ["communities_id"], name: "index_photos_on_communities_id", using: :btree
     t.index ["event_id"], name: "index_photos_on_event_id", using: :btree
+    t.index ["groups_id"], name: "index_photos_on_groups_id", using: :btree
     t.index ["photoable_type", "photoable_id"], name: "index_photos_on_photoable_type_and_photoable_id", using: :btree
     t.index ["sermon_id"], name: "index_photos_on_sermon_id", using: :btree
   end
@@ -120,9 +150,13 @@ ActiveRecord::Schema.define(version: 20170420174715) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "communities", "users"
   add_foreign_key "episodes", "users", column: "users_id"
   add_foreign_key "events", "users"
+  add_foreign_key "groups", "users"
+  add_foreign_key "photos", "communities", column: "communities_id"
   add_foreign_key "photos", "events"
+  add_foreign_key "photos", "groups", column: "groups_id"
   add_foreign_key "photos", "sermons"
   add_foreign_key "reservations", "events"
   add_foreign_key "reservations", "users"

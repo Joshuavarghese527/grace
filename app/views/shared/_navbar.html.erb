@@ -45,31 +45,25 @@
                 <% else %>
                  <ul class="nav navbar-nav navbar-right">
                     <!-- Home -->
+                    <li><%= link_to "Home", root_path %></li>
+                    
                    <li><%= link_to "Get to know us", know_us_path %></li>
-                    </li>
-                    <li>
-                   <li><%= link_to "What we do", what_we_do_path %></li>
-                    </li>
-                     <li>
+
+                  
                    <li><%= link_to "Resources", resources_path %></li>
-                    </li>
-                    <li>
+                    
+
+                   
                     <li><%= link_to "Events", events_path %></li>
-                    </li>
-                    <li>
-                    <li>
-                    <li><%= link_to "Create Event", new_event_path %></li>
-                    </li>
-                     <li>
-                    <li><%= link_to "Sermons", sermons_path %></li>
-                    </li>
-                    <li>
-                    <li>
-                    <li><%= link_to "Create Sermons", new_sermon_path %></li>
-                    </li>
-                    <li>
+                    
+
+                
+                    <li><%= link_to "Create New", create_path %></li>
+                    
+
+                   
                      <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-                      </li>
+                     
                 </ul>
                  <% end %>
             </div>
