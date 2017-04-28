@@ -69,15 +69,15 @@ Rails.application.configure do
 
   # config/environments/production.rb
 config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-        :bucket => ENV['S3_BUCKET_NAME'],
-        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    },
-    :url =>'https://console.aws.amazon.com/s3/buckets/grace-east-queens/?region=us-west-2&tab=overview',
-    :path => '/:class/:attachment/:id_partition/:style/:filename',
+  :storage => :s3,
+  :s3_region => ENV['AWS_REGION'],
+  :s3_credentials => {
+    :bucket => ENV['AWS_BUCKET'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
 }
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
