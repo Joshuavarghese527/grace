@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422001908) do
+ActiveRecord::Schema.define(version: 20170428185510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "audios", force: :cascade do |t|
+    t.integer  "sermon_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "sound_file_name"
+    t.string   "sound_content_type"
+    t.integer  "sound_file_size"
+    t.datetime "sound_updated_at"
+    t.index ["sermon_id"], name: "index_audios_on_sermon_id", using: :btree
+  end
 
   create_table "communities", force: :cascade do |t|
     t.string   "title"
@@ -92,6 +103,10 @@ ActiveRecord::Schema.define(version: 20170422001908) do
     t.integer  "sermon_id"
     t.integer  "communities_id"
     t.integer  "groups_id"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
     t.index ["communities_id"], name: "index_photos_on_communities_id", using: :btree
     t.index ["event_id"], name: "index_photos_on_event_id", using: :btree
     t.index ["groups_id"], name: "index_photos_on_groups_id", using: :btree
@@ -150,6 +165,7 @@ ActiveRecord::Schema.define(version: 20170422001908) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "audios", "sermons"
   add_foreign_key "communities", "users"
   add_foreign_key "episodes", "users", column: "users_id"
   add_foreign_key "events", "users"

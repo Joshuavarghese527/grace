@@ -55,6 +55,7 @@ resources :events
 resources :sermons
 resources :photos 
 resources :groups
+resources :audios
 
 
 

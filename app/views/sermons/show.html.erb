@@ -8,31 +8,47 @@
     
     <!-- Image -->
     <div class="row">
-      <div class="col-md-12">
-       <h1><%= @event.title %></h1>
-        <%= image_tag @photos[0].image.url(), class: "img-responsive" if @photos.length > 0 %>
+      <div class="col-md-12 text-center">
+       <h1><%= @sermon.title %></h1>
       </div>
     </div>
+
 
     <br>
 
     <!-- Main Info -->
 
     <!-- About -->
-    <div class="row">
-      <div class="col-md-4">
-        <h2>About this event</h2>
-        <p><%= @event.description %></p>
+    <div class="row text-center">
+      <div class="col-md-6">
+        <h2>About Sermon</h2>
+        <p><%= @sermon.summary %></p>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-6">
         <h2>Time and Date</h2>
-        <p><%= @event.date.strftime("%d %b %Y %A") %> <%= @event.time.strftime("%l:%M %p") %></p>
+        <p><%= @sermon.date.strftime(" %A, %b  %d  %Y") %> <%= @sermon.time.strftime("%l:%M %p") %></p>
+      </div>
+
+         <div class="row">
+       <div class="col-md-12">
+        <h2>Sermon Audio</h2>
+  
+        <%= link_to "Play Audio", @audios[0].sound.url(), class: " btn btn-inverse play"  %>
+
       </div>
       </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
+
+
+
       
+      </div>
+
+     
+
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+

@@ -32,18 +32,29 @@
     </div>
   </div>
 
-        <div class="row">
+
+         <div class="row">
           <div class="col-md-4">
             <div class="form-group">              
               <span class="btn btn-default btn-file">
-                  <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos 
-                  <%= file_field_tag "images[]", type: :file, multiple: true %>
+                  <i class="fa fa-cloud-upload fa-lg"></i> Upload Audio
+                  <%= file_field_tag "sounds[]", type: :file, multiple: true %>
               </span>
             </div>    
           </div>
         </div>
 
-        <div id="photos"><%= render 'photos/list' %></div>
+
+
+        <div class="row" id="audios">
+            <%= render 'audios/list' %>
+        </div>
+
+        
+
+        <div class= "row" id="photos">
+            <%= render 'photos/list' %>
+        </div>
 
 
         <div class="actions">

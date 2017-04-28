@@ -7,7 +7,7 @@ class SermonsController < ApplicationController
   end
 
   def show
-    @photos = @sermon.photos
+    @audios = @sermon.audios
   end
 
   def new
@@ -19,13 +19,13 @@ class SermonsController < ApplicationController
 
     if @sermon.save
 
-      if params[:images] 
-        params[:images].each do |image|
-          @sermon.photos.create(image: image)
+      if params[:sounds] 
+        params[:sounds].each do |sound|
+          @sermon.audios.create(sound: sound)
         end
       end
 
-      @photos = @sermon.photos
+      @audios = @sermon.audios
       redirect_to edit_sermon_path(@sermon), notice: "Saved..."
     else
       render :new
@@ -34,7 +34,7 @@ class SermonsController < ApplicationController
 
   def edit
    if current_user.id == @sermon.user.id
-      @photos = @sermon.photos
+      @audios = @sermon.audios
     else
       redirect_to root_path, notice: "You don't have permission."
     end
@@ -43,9 +43,9 @@ class SermonsController < ApplicationController
   def update
     if @sermon.update(sermon_params)
 
-      if params[:images] 
-        params[:images].each do |image|
-          @sermon.photos.create(image: image)
+      if params[:sounds] 
+        params[:sounds].each do |image|
+          @sermon.photos.create(sound: sound)
         end
       end
 
