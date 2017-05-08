@@ -42,7 +42,7 @@ class GraceFinalsController < ApplicationController
   def books
   end
 
-  def statment_of_faith
+  def statement_of_faith
   end
 
   def sunday

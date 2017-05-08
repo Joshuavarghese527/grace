@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
 
 #faith statement 
-  get  'statment_of_faith'    => 'grace_finals#statment_of_faith'
+  get  'statement_of_faith'    => 'grace_finals#statement_of_faith'
 
   #sunday
    get  'sunday'    => 'grace_finals#sunday'
